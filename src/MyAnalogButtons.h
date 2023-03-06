@@ -3,12 +3,15 @@
 
 #include <Arduino.h>
 
+/* Indicates after how many readings contained in a range I must consider the correct reading */
 #define GOOD_SAMPLE_THRESHOLD 2
+
+/* Uncomment if you want enable debug */
+//#define ENABLE_MY_ANALOG_BUTTONS_DEBUG
+
 
 #define CONTAINED(x, y, z) ((x) < (y) + (z) && (x) > (y) - (z))
 
-// Debug Macro
-//#define ENABLE_MY_ANALOG_BUTTONS_DEBUG
 #ifdef ENABLE_MY_ANALOG_BUTTONS_DEBUG
     #define DEBUG_ANALOG_BUTTON_HEADER "MyAnalogButton -> "
     #define DEBUG_ANALOG_BUTTON(...) printHeader(); Serial.printf(__VA_ARGS__)
